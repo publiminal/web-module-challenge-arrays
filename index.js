@@ -44,12 +44,12 @@ Use the copy function below to do the following:
   1. receive an array as a parameter - you will pass in originalFlavors as an argument when the function is invoked.
   2. Return a copy of the received array  
 */
-
-function copy(/*your code here*/){
-  /*your code here*/
+let _flavors = [];
+function copy(arr){
+  _flavors = [...arr];
+  return _flavors;
 }    
-
-
+console.log(`new Flavors is ${copy(originalFlavors)}`);
 
 
 
@@ -64,9 +64,13 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
- /*your code here*/
+function is31Flavors(arr){
+  const is31 = arr.length === 31;
+  return is31;
 }
+
+console.log(`calling is31() : ${is31Flavors(_flavors)}`);
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -81,10 +85,11 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
- /*your code here*/
+function addFlavor(arrFlavors, newFlavor){
+  arrFlavors.unshift(newFlavor);
+  return arrFlavors;
 }
-
+console.log(addFlavor(_flavors, 'Rainbow Sherbert'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -97,10 +102,11 @@ Use the removeLastFlavor function below to do the following:
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(flavorsArr){
+ _flavors.pop(flavorsArr);
+ return _flavors;
 }
-
+console.log(removeLastFlavor(_flavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -114,9 +120,10 @@ Use the getFlavorByIndex function below to do the following:
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(flavorArr, TargetIndex){
+    return flavorArr[TargetIndex];
 }
+console.log(`target index 1 is ${getFlavorByIndex(_flavors, 1)}`);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -134,9 +141,14 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(flavorsArr, flavorName){
+    const i = flavorsArr.indexOf(flavorName);
+    console.log(`i index is : ${i}`);
+    flavorsArr.splice(i, 1);
+    return flavorsArr;
 }
+
+console.log(removeFlavorByName(_flavors,'Vanilla'));
 
 
 
@@ -160,10 +172,11 @@ Use the filterByWord function below to do the following:
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(flavorArr, flavorName){
+  const filterByWord = flavorArr.filter( flavor => flavor.includes(flavorName)  );
+  return filterByWord;
 }
-
+console.log(`filtered is ${filterByWord(_flavors, 'Sherbet')}`);
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
